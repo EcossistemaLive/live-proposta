@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contrato - Indústria Têxtil (Nome a Preencher) - Live Consultoria</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Times New Roman', serif; font-size: 12pt; line-height: 1.6; color: #000000; background-color: #ffffff; max-width: 210mm; margin: 0 auto; padding: 20mm; }
+.header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #000000; padding-bottom: 20px; }
+.header h1 { font-size: 16pt; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.header .subtitle { font-size: 14pt; font-weight: bold; margin-bottom: 5px; }
+.header .company-info { font-size: 11pt; margin-bottom: 3px; }
+.parties { margin-bottom: 30px; }
+.party { margin-bottom: 20px; padding: 15px; border: 1px solid #000000; background-color: #f9f9f9; }
+.party-title { font-weight: bold; font-size: 13pt; margin-bottom: 10px; text-transform: uppercase; color: #06192a; border-bottom: 1px solid #06192a; padding-bottom: 5px; }
+.party-info { font-size: 11pt; margin-bottom: 5px; }
+.party-info strong { font-weight: bold; color: #06192a; }
+.section { margin-bottom: 25px; page-break-inside: avoid; }
+.section-title { font-size: 13pt; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; border-bottom: 1px solid #000000; padding-bottom: 5px; color: #06192a; }
+.clause { margin-bottom: 15px; }
+.clause-content { text-align: justify; margin-left: 10px; font-size: 11pt; }
+.subclauses { margin-left: 20px; margin-top: 10px; }
+.subclause { margin-bottom: 8px; font-size: 11pt; }
+.highlight { font-weight: bold; color: #06192a; }
+.currency { font-weight: bold; font-size: 13pt; color: #00e800; background-color: #f0f8f0; padding: 2px 5px; border-radius: 3px; }
+.signatures { margin-top: 50px; display: flex; justify-content: space-between; page-break-inside: avoid; }
+.signature-block { text-align: center; width: 45%; }
+.signature-line { border-top: 2px solid #000000; margin-top: 60px; padding-top: 10px; font-size: 11pt; }
+.footer { margin-top: 40px; text-align: center; font-size: 10pt; border-top: 1px solid #000000; padding-top: 15px; color: #666666; }
+.print-button { position: fixed; top: 20px; right: 20px; background-color: #00e800; color: #06192a; border: none; padding: 15px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; transition: all 0.3s; }
+.print-button:hover { background-color: #00cc00; transform: translateY(-2px); }
+.developer-credit { font-size: 0.75rem; opacity: 0.4; font-style: italic; text-align: center; margin-top: 2rem; color: #666666; }
+.scope-list { margin-left: 20px; margin-top: 10px; }
+.scope-item { margin-bottom: 10px; padding: 8px; background-color: #f8f8f8; border-left: 3px solid #00e800; font-size: 11pt; }
+.scope-item-title { font-weight: bold; color: #06192a; margin-bottom: 5px; }
+.date-location { text-align: center; margin-top: 30px; margin-bottom: 20px; font-size: 11pt; font-style: italic; }
+@media print {
+  body { margin: 0; padding: 15mm; font-size: 11pt; }
+  .no-print { display: none !important; }
+  .print-button { display: none !important; }
+  .party { background-color: #ffffff; }
+  .scope-item { background-color: #ffffff; border-left: 2px solid #000000; }
+}
+@page { margin: 2cm; size: A4; }
+</style>
+</head>
+<body>
+<button class="print-button no-print" onclick="window.print()">️ Salvar como PDF</button>
+<div class="header">
+  <h1>Contrato de Prestação de Serviços de Consultoria</h1>
+  <div class="subtitle">Live Consultoria Empresarial</div>
+  <div class="company-info">CNPJ: XX.XXX.XXX/0001-XX</div>
+  <div class="company-info">Endereço: Goiânia/GO</div>
+</div>
+<div class="parties">
+  <div class="party">
+    <div class="party-title">Contratante</div>
+    <div class="party-info"><strong>Razão Social:</strong> Indústria Têxtil (Nome a Preencher)</div>
+    <div class="party-info"><strong>CNPJ:</strong> XX.XXX.XXX/0001-XX</div>
+    <div class="party-info"><strong>Endereço:</strong> Goiânia / Senador Canedo - GO (Preencher)</div>
+    <div class="party-info"><strong>Representante Legal:</strong> Lani / Fundador</div>
+    <div class="party-info"><strong>CPF:</strong> XXX.XXX.XXX-XX</div>
+  </div>
+  <div class="party">
+    <div class="party-title">Contratada</div>
+    <div class="party-info"><strong>Razão Social:</strong> Live Consultoria Empresarial Ltda</div>
+    <div class="party-info"><strong>CNPJ:</strong> XX.XXX.XXX/0001-XX</div>
+    <div class="party-info"><strong>Endereço:</strong> Goiânia - GO</div>
+    <div class="party-info"><strong>Representante Legal:</strong> Luiz Portal</div>
+    <div class="party-info"><strong>Email:</strong> luiz.portal@liveconsultoria.com</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Cláusula Primeira - Do Objeto</div>
+  <div class="clause">
+    <div class="clause-content">
+      A <span class="highlight">CONTRATADA</span> prestará à <span class="highlight">CONTRATANTE</span> serviços de consultoria empresarial, conforme especificações detalhadas abaixo:
+      <div class="scope-list">
+        <div class="scope-item">
+          <div class="scope-item-title">Diagnóstico Organizacional e Financeiro</div>
+          <div>Mapeamento completo dos processos e controles atuais, análise de custos fixos e do fardo de maquinário (financiamento).</div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-item-title">Integração de ERP e Cultura de Processos</div>
+          <div>Evolução do uso do sistema de gestão atual para integração produtiva e chão de fábrica.</div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-item-title">Estruturação da Máquina de Vendas</div>
+          <div>Criação de processo comercial com time dedicado para desonerar o fundador atual.</div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-item-title">Preparação para Certificação Inmetro</div>
+          <div>Diagnóstico de Gaps visando futuras auditorias normativas.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Cláusula Segunda - Do Prazo</div>
+  <div class="clause">
+    <div class="clause-content">
+      O presente contrato terá vigência de <span class="highlight">5 (cinco) meses</span>, iniciando-se em <span class="highlight">A definir na assinatura</span> e encerrando-se em <span class="highlight">A definir</span>.
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Cláusula Terceira - Do Valor e Forma de Pagamento</div>
+  <div class="clause">
+    <div class="clause-content">
+      O valor total dos serviços é de <span class="currency">R$ 54.000,00 (Cinquenta e quatro mil reais)</span>.
+      <div class="subclauses">
+        <div class="subclause">• <strong>Forma de Pagamento:</strong> Sinal de 20% no aceite e parcelamento conforme implantações entregues.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Omitidas as cláusulas padronizadas jurídicas longas da base para concisão, mas estrutura mantida -->
+<div class="section">
+  <div class="section-title">Cláusula Quarta - Da Rescisão E Confidencialidade</div>
+  <div class="clause">
+    <div class="clause-content">
+      O não cumprimento acarreta cancelamento nos rigores e penalidades definidos em comum acordo (vide vias complementares em elaboração civil). Total confidencialidade das estratégias industriais do CONTRATANTE.
+    </div>
+  </div>
+</div>
+
+<div class="date-location">
+  Goiânia, 24 de março de 2026
+</div>
+
+<div class="signatures">
+  <div class="signature-block">
+    <div class="signature-line">
+      <strong>Lani / Gestor Fundador</strong><br>
+      Indústria Têxtil (Nome a Preencher)<br>CPF: XXX.XXX.XXX-XX
+    </div>
+  </div>
+  <div class="signature-block">
+    <div class="signature-line">
+      <strong>Luiz Portal</strong><br>
+      Live Consultoria Empresarial<br>Email: luiz.portal@liveconsultoria.com
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Este contrato foi elaborado em conformidade com o Código Civil Brasileiro.</p>
+</div>
+<div class="developer-credit">Desenvolvido por Cléber Donato</div>
+
+</body>
+</html>
