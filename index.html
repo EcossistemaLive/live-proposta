@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposta de Consultoria - Live</title>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Proposta de Consultoria Estratégica - Live Consultoria</title>
+    <!-- Fontes Live: Merriweather e Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
             --live-azul-petroleo: #06192a;
@@ -12,155 +15,427 @@
             --live-branco: #ffffff;
             --live-cinza-claro: #f8f9fa;
             --live-cinza-medio: #6c757d;
+            --live-azul-claro: #143555;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(6, 25, 42, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(6, 25, 42, 0.1);
         }
+
         body {
             font-family: 'Merriweather', serif;
             background-color: var(--live-cinza-claro);
             color: var(--live-azul-petroleo);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
         }
-        h1, h2, h3, h4 {
+
+        h1, h2, h3, h4, h5, .font-poppins {
             font-family: 'Poppins', sans-serif;
             color: var(--live-azul-petroleo);
+            margin-top: 0;
         }
-        .header {
+
+        /* Hero Section */
+        .hero {
             background-color: var(--live-azul-petroleo);
-            padding: 40px 20px;
+            background-image: radial-gradient(circle at right top, var(--live-azul-claro) 0%, transparent 50%);
+            padding: 80px 20px;
             text-align: center;
+            color: var(--live-branco);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--live-verde-vibrante);
         }
-        .header img {
-            max-width: 200px;
-            margin-bottom: 20px;
+
+        .hero img {
+            max-width: 250px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
         }
-        .header h1 {
+
+        .hero h1 {
             color: var(--live-verde-vibrante);
-            margin: 0;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
         }
+        
+        .hero p.subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--live-branco);
+        }
+
         .container {
-            max-width: 1000px;
-            margin: 40px auto;
+            max-width: 1100px;
+            margin: -40px auto 40px;
             padding: 0 20px;
+            position: relative;
+            z-index: 10;
         }
+
         .card {
             background: var(--live-branco);
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 8px rgba(6, 25, 42, 0.05);
-        }
-        .highlight {
-            background-color: var(--live-verde-vibrante);
-            color: var(--live-azul-petroleo);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-        .timeline {
-            border-left: 3px solid var(--live-verde-vibrante);
-            padding-left: 20px;
-            margin-top: 20px;
-        }
-        .timeline-item {
-            margin-bottom: 20px;
+            border: none;
+            border-radius: 16px;
+            padding: 40px 50px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-lg);
             position: relative;
+            overflow: hidden;
         }
-        .timeline-item::before {
+        
+        .card::before {
             content: '';
             position: absolute;
-            left: -29px;
-            top: 5px;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background-color: var(--live-azul-petroleo);
-            border: 2px solid var(--live-verde-vibrante);
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background-color: var(--live-verde-vibrante);
         }
-        .btn-primary {
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(6, 25, 42, 0.1);
+            padding-bottom: 15px;
+        }
+        
+        .card-header i {
+            font-size: 2.2rem;
+            color: var(--live-verde-vibrante);
+            margin-right: 20px;
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+
+        /* Mapca Methodology Section */
+        .mapca-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .mapca-box {
+            background-color: var(--live-cinza-claro);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--live-azul-petroleo);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .mapca-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .mapca-box h3 {
+            font-size: 1.4rem;
+            color: var(--live-azul-petroleo);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .mapca-box h3 i {
+            color: var(--live-verde-vibrante);
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* Priorities / Matrix Grid */
+        .priority-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .priority-item {
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .priority-high {
+            background-color: rgba(0, 232, 0, 0.05);
+            border-left: 4px solid var(--live-verde-vibrante);
+        }
+
+        .priority-structural {
+            background-color: rgba(6, 25, 42, 0.03);
+            border-left: 4px solid var(--live-azul-petroleo);
+        }
+
+        /* Timeline / Action Plan */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin-top: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--live-verde-vibrante), var(--live-azul-petroleo));
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            background: var(--live-cinza-claro);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--live-branco);
+            border: 4px solid var(--live-verde-vibrante);
+            z-index: 2;
+        }
+        
+        .timeline-cap {
             display: inline-block;
+            background-color: var(--live-azul-petroleo);
+            color: var(--live-branco);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .highlight {
+            background-color: rgba(0, 232, 0, 0.15);
+            color: var(--live-azul-petroleo);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        strong.dark {
+            color: var(--live-azul-petroleo);
+            font-weight: 700;
+        }
+
+        /* Call To Action */
+        .cta-section {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, var(--live-azul-petroleo) 0%, var(--live-azul-claro) 100%);
+            border-radius: 16px;
+            color: var(--live-branco);
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section h2 {
+            color: var(--live-verde-vibrante);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .price-box {
+            display: inline-block;
+            background: rgba(255,255,255,0.05);
+            padding: 20px 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            margin: 20px 0 40px;
+        }
+        
+        .price-box h1 {
+            color: var(--live-verde-vibrante);
+            font-size: 3.5rem;
+            margin: 0;
+            line-height: 1;
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background-color: var(--live-verde-vibrante);
             color: var(--live-azul-petroleo);
             text-decoration: none;
-            padding: 15px 30px;
+            padding: 16px 36px;
             border-radius: 8px;
             font-family: 'Poppins', sans-serif;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            text-align: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             border: none;
             cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 232, 0, 0.3);
         }
+
+        .btn-primary i {
+            margin-right: 12px;
+            font-size: 1.4rem;
+        }
+
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 232, 0, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 232, 0, 0.4);
+            background-color: #00ff00;
         }
+
         .footer-cred {
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--live-cinza-medio);
             font-style: italic;
             padding: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Responsive Improvements */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .card { padding: 30px 20px; }
+            .priority-grid { grid-template-columns: 1fr; }
+            .cta-section { padding: 40px 20px; }
+            .price-box h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
+    <div class="hero">
         <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" alt="Live Consultoria">
-        <h1>Proposta de Transformação Organizacional</h1>
+        <h1>Proposta de Transformação e Escalabilidade</h1>
+        <p class="subtitle">Desenhada exclusivamente para <strong>Indústria Textil</strong> por <strong>Luiz Portal</strong></p>
     </div>
 
     <div class="container">
+        
         <div class="card">
-            <h2>🎯 Diagnóstico e Contexto (M.A.P.C.A)</h2>
-            <p>Com base na nossa análise da <strong>Indústria Textil</strong>, identificamos um cenário de forte potencial produtivo e maquinário altamente tecnológico, porém limitado por processos desestruturados e gestão centralizada. O esforço comercial e operacional repousa sobre a figura do fundador, gerando exaustão, enquanto o endividamento por aquisições pressiona o fluxo de caixa.</p>
-            <p>A estratégia M.A.P.C.A estruturada visa <strong>Quick Wins</strong> focados na organização básica de responsabilidades e avaliação do ERP, pavimentando o caminho para os <strong>Projetos Estruturais</strong> de preparação para Certificação, otimização de chão de fábrica e planejamento sucessório.</p>
+            <div class="card-header">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <h2>O Diagnóstico Estratégico</h2>
+            </div>
+            <p>Com base em nossa análise profunda do cenário atual da <strong class="dark">Indústria Textil</strong>, identificamos uma organização com um equipamento de ponta, <strong>capacidade produtiva ociosa</strong> e enorme potencial de mercado.</p>
+            <p>Porém, a <strong>alta centralização da gestão na figura do fundador</strong> (60 anos), aliada a <strong>processos desestruturados</strong> e um <strong>ERP subutilizado/obsoleto</strong> criaram gargalos que impedem a escala sistêmica. O alto endividamento devido ao financiamento do maquinário (FCO/BNDES) pressiona as margens financeiras no curto prazo. Este é o <strong>típico gargalo de crescimento</strong> onde a gestão não acompanhou a rápida expansão estrutural da fábrica.</p>
         </div>
 
         <div class="card">
-            <h2>📋 Plano de Ação Estruturado</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3 class="titulo">01. Diagnóstico de Processos e Maturidade Sistêmica</h3>
-                    <p>Mapeamento do fluxo atual de produção versus capacidade do ERP existente. Identificação de gargalos imediatos de comunicação entre vendas e chão de fábrica.</p>
-                    <p><span class="highlight">Duração: 2 Semanas</span></p>
+            <div class="card-header">
+                <i class="fa-solid fa-layer-group"></i>
+                <h2>Metodologia M.A.P.C.A</h2>
+            </div>
+            <p>Para extrair a empresa do sufoco financeiro e colocá-la na rota de certificações e sucessão profissional, desenhamos uma abordagem técnica baseada no framework rigoroso <strong>M.A.P.C.A</strong> de transformação organizacional.</p>
+            
+            <div class="priority-grid">
+                <div class="priority-item priority-high">
+                    <h3 class="font-poppins"><i class="fa-solid fa-bolt" style="color:var(--live-verde-vibrante); margin-right:8px;"></i> Quick Wins (Ganhos Rápidos)</h3>
+                    <p><strong>Impacto: Alto | Esforço: Baixo</strong></p>
+                    <p>Ações de ataque imediato para gerar caixa e aliviar o fluxo. Diagnóstico de viabilidade do ERP atual versus capacidades do chão de fábrica; mapeamento imediato de responsabilidades fundamentais para tirar o peso tático das costas do fundador.</p>
                 </div>
-                <div class="timeline-item">
-                    <h3 class="titulo">02. Estruturação Financeira e Custos</h3>
-                    <p>Análise do fluxo de caixa, gestão do endividamento das máquinas e reestruturação de precificação para alavancar a capacidade ociosa.</p>
-                    <p><span class="highlight">Duração: 3 Semanas</span></p>
-                </div>
-                <div class="timeline-item">
-                    <h3 class="titulo">03. Desenho de Processos e Pré-requisitos para Certificação</h3>
-                    <p>Padronização das operações produtivas e criação de indicadores (KPIs) para preparar o terreno para a auditoria de certificação (Inmetro/ISO).</p>
-                    <p><span class="highlight">Duração: 4 Semanas</span></p>
-                </div>
-                <div class="timeline-item">
-                    <h3 class="titulo">04. Descentralização e Planejamento Sucessório</h3>
-                    <p>Estruturação de um comitê de gestão, redefinição de papéis da diretoria e criação de uma máquina de vendas comercial menos dependente do fundador.</p>
-                    <p><span class="highlight">Duração: 6 Semanas</span></p>
+                <div class="priority-item priority-structural">
+                    <h3 class="font-poppins"><i class="fa-solid fa-building" style="color:var(--live-azul-petroleo); margin-right:8px;"></i> Projetos Estruturais</h3>
+                    <p><strong>Impacto: Alto | Esforço: Alto</strong></p>
+                    <p>Readequação total do chão de fábrica, preparação técnica para a certificação (Inmetro/ISO) e reestruturação da dívida das máquinas, tornando a operação perene, segura e autônoma.</p>
                 </div>
             </div>
         </div>
 
-        <div class="card" style="text-align: center;">
-            <h2>💼 Investimento e Formalização</h2>
-            <p>O investimento para a execução deste projeto estrutural (Mapeamento + Consultoria Estratégica) é de:</p>
-            <h1 style="color: var(--live-azul-petroleo); font-size: 3rem; margin: 10px 0;">R$ 39.000,00</h1>
-            <p style="margin-bottom: 30px;"><em>(Trinta e nove mil reais)</em></p>
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-route"></i>
+                <h2>O Plano de Ação Estruturado</h2>
+            </div>
+            <p>Nosso roteiro de execução para a <strong class="dark">Indústria Textil</strong> será faseado para garantir absorção de cultura e resultado no caixa ao longo do processo.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-cap">Mês 1</span>
+                    <h3 class="font-poppins">01. Maturidade Sistêmica & Quick Wins</h3>
+                    <p>Iniciamos mapeando todo o fluxo atual vs. o ERP. Identificaremos por que a tecnologia não conversa com o maquinário e entregaremos o primeiro desenho das responsabilidades das lideranças, aliviando tarefas da direção. Início imediato do oxigênio financeiro.</p>
+                    <div style="margin-top:15px;"><span class="highlight">Duração: 2 a 3 Semanas</span></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="timeline-cap">Mês 2</span>
+                    <h3 class="font-poppins">02. Engrenagem Financeira & Capacidade</h3>
+                    <p>Com o diagnóstico limpo, entramos no fluxo de caixa e reestruturamos a política de preços. O foco central é alavancar a produção na capacidade ociosa para abater os juros do maquinário financiando. Ajuste do <em>Markup</em> e pontos de equilíbrio.</p>
+                    <div style="margin-top:15px;"><span class="highlight">Duração: 4 Semanas</span></div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-cap">Mês 3</span>
+                    <h3 class="font-poppins">03. Arquitetura de Processos e Auditoria</h3>
+                    <p>Transformamos "conhecimento tácito" em POPs (Procedimentos Operacionais Padrão) integrados e indicadores (KPIs). Implementaremos os pré-requisitos fundamentais que blindarão o negócio contra dependências e preparam o terreno sólido para Inmetro/ISO.</p>
+                    <div style="margin-top:15px;"><span class="highlight">Duração: 4 Semanas</span></div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-cap">Mês 4 e 5</span>
+                    <h3 class="font-poppins">04. Autonomia e Transição (O Legado)</h3>
+                    <p>Estruturação técnica da máquina de vendas descentralizada. Estabeleceremos o Comitê de Gestão Executivo, formatando a trilha segura para o desenvolvimento de herdeiros ou preparo de transição da cadeira do fundador, profissionalizando definitivamente o negócio.</p>
+                    <div style="margin-top:15px;"><span class="highlight">Duração: 4 a 6 Semanas</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Prontos para profissionalizar o futuro?</h2>
+            <p class="subtitle">O investimento correspondente a 15 semanas da Consultoria Live para Mapeamento Estratégico, Execução da Reestruturação e Desenho de Certificações é de:</p>
+            
+            <div class="price-box">
+                <h1>R$ 39.000,00</h1>
+            </div>
+            
+            <p style="margin-bottom: 35px; opacity: 0.8;"><em>* Condições de faturamento e parcelamentos disponíveis no corpo do contrato formal.</em></p>
             
             <a href="contrato_Industria_Textil.html" target="_blank" class="btn-primary">
-                📄 Abrir Contrato Completo para Assinatura (PDF)
+                <i class="fa-solid fa-file-signature"></i> 
+                Abrir Contrato para PDF & Assinatura
             </a>
         </div>
     </div>
 
     <div class="footer-cred">
-        Desenvolvido por Cléber Donato
+        Desenvolvido com o rigor da Live Consultoria por Cléber Donato
     </div>
 
 </body>
