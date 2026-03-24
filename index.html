@@ -9,13 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --live-bg: #03080e;
-    --live-surface: rgba(10, 20, 35, 0.6);
-    --live-surface-hover: rgba(15, 30, 50, 0.8);
-    --live-border: rgba(255, 255, 255, 0.06);
+    --live-bg: #06192a;
+    --live-surface: rgba(255, 255, 255, 0.04);
+    --live-surface-hover: rgba(255, 255, 255, 0.08);
+    --live-border: rgba(255, 255, 255, 0.08);
     --live-neon: #00e800;
     --live-neon-dim: rgba(0, 232, 0, 0.15);
-    --live-text: #f1f5f9;
+    --live-text: #ffffff;
     --live-muted: #94a3b8;
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Outfit', sans-serif;
@@ -30,13 +30,6 @@
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
-  }
-  
-  /* Noise Texture Overlay */
-  body::before {
-    content: ""; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none; z-index: 9999;
   }
   
   /* Typography */
@@ -65,11 +58,11 @@
   
   .glass-panel {
     background: var(--live-surface);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--live-border);
-    border-radius: 24px;
-    padding: 48px;
+    border-radius: 16px;
+    padding: 35px 30px;
     transition: all 0.3s ease;
   }
   
@@ -187,7 +180,7 @@
         <h1>De Operação Centralizada a Produtividade Extrema</h1>
         <p>Desenvolvemos uma arquitetura gerencial sob medida para libertar o fundador da operação manual e plugar agilidade de software direto no chão de fábrica.</p>
         <div style="margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap;">
-          <a href="#investimento" class="btn btn-primary">Analisar Plano de Ação <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
+          
         </div>
       </div>
       
@@ -233,7 +226,7 @@
     <h2>Plano de Ação: O Ciclo de 5 Meses</h2>
     <div class="grid-2" style="align-items: start;">
       <div>
-        <p style="font-size: 1.25rem;">Nossa matriz M.A.P.C.A garante implementação rápida, com os primeiros "Quick Wins" liberando banda cognitiva do gestor já no primeiro mês.</p>
+        <p style="font-size: 1.25rem;">Nosso plano de ação garante uma evolução passo a passo, resolvendo as demandas mais urgentes para aliviar a carga de trabalho do gestor já nas primeiras semanas de projeto.</p>
       </div>
       <div class="timeline">
         <div class="timeline-item">
@@ -274,7 +267,7 @@
   <footer>
     <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" class="logo" style="width: 100px; margin-bottom: 24px; opacity: 0.5;">
     <p style="font-size: 0.9rem; margin-bottom: 8px;"><strong>Live Consultoria Empresarial</strong></p>
-    <p style="font-size: 0.85rem; color: var(--live-muted);">CNPJ: Consultoria Live - Negócios de Alta Performance</p>
+    <p style="font-size: 0.85rem; color: var(--live-muted);">Consultoria Live - Negócios de Alta Performance</p>
   </footer>
 
 </div>
