@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contrato - [NOME_EMPRESA] - Live Consultoria</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;700&display=swap');
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Times New Roman', serif;
+font-size: 12pt;
+line-height: 1.6;
+color: #000000;
+background-color: #ffffff;
+max-width: 210mm;
+margin: 0 auto;
+padding: 20mm;
+}
+.header {
+text-align: center;
+margin-bottom: 30px;
+border-bottom: 2px solid #000000;
+padding-bottom: 20px;
+}
+.header h1 {
+font-size: 16pt;
+font-weight: bold;
+margin-bottom: 10px;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+.header .subtitle {
+font-size: 14pt;
+font-weight: bold;
+margin-bottom: 5px;
+}
+.header .company-info {
+font-size: 11pt;
+margin-bottom: 3px;
+}
+.parties {
+margin-bottom: 30px;
+}
+.party {
+margin-bottom: 20px;
+padding: 15px;
+border: 1px solid #000000;
+background-color: #f9f9f9;
+}
+.party-title {
+font-weight: bold;
+font-size: 13pt;
+margin-bottom: 10px;
+text-transform: uppercase;
+color: #06192a;
+border-bottom: 1px solid #06192a;
+padding-bottom: 5px;
+}
+.party-info {
+font-size: 11pt;
+margin-bottom: 5px;
+}
+.party-info strong {
+font-weight: bold;
+color: #06192a;
+}
+.section {
+margin-bottom: 25px;
+page-break-inside: avoid;
+}
+.section-title {
+font-size: 13pt;
+font-weight: bold;
+margin-bottom: 15px;
+text-transform: uppercase;
+border-bottom: 1px solid #000000;
+padding-bottom: 5px;
+color: #06192a;
+}
+.clause {
+margin-bottom: 15px;
+}
+.clause-content {
+text-align: justify;
+margin-left: 10px;
+font-size: 11pt;
+}
+.subclauses {
+margin-left: 20px;
+margin-top: 10px;
+}
+.subclause {
+margin-bottom: 8px;
+font-size: 11pt;
+}
+.highlight {
+font-weight: bold;
+color: #06192a;
+}
+.currency {
+font-weight: bold;
+font-size: 13pt;
+color: #00e800;
+background-color: #f0f8f0;
+padding: 2px 5px;
+border-radius: 3px;
+}
+.signatures {
+margin-top: 50px;
+display: flex;
+justify-content: space-between;
+page-break-inside: avoid;
+}
+.signature-block {
+text-align: center;
+width: 45%;
+}
+.signature-line {
+border-top: 2px solid #000000;
+margin-top: 60px;
+padding-top: 10px;
+font-size: 11pt;
+}
+.signature-line strong {
+font-size: 12pt;
+color: #06192a;
+}
+.footer {
+margin-top: 40px;
+text-align: center;
+font-size: 10pt;
+border-top: 1px solid #000000;
+padding-top: 15px;
+color: #666666;
+}
+.print-button {
+position: fixed;
+top: 20px;
+right: 20px;
+background-color: #00e800;
+color: #06192a;
+border: none;
+padding: 15px 30px;
+border-radius: 8px;
+font-weight: bold;
+cursor: pointer;
+font-size: 14px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+z-index: 1000;
+transition: all 0.3s ease;
+}
+.print-button:hover {
+background-color: #00cc00;
+transform: translateY(-2px);
+box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+.developer-credit {
+font-size: 0.75rem;
+opacity: 0.4;
+font-style: italic;
+text-align: center;
+margin-top: 2rem;
+color: #666666;
+}
+.scope-list {
+margin-left: 20px;
+margin-top: 10px;
+}
+.scope-item {
+margin-bottom: 10px;
+padding: 8px;
+background-color: #f8f8f8;
+border-left: 3px solid #00e800;
+font-size: 11pt;
+}
+.scope-item-title {
+font-weight: bold;
+color: #06192a;
+margin-bottom: 5px;
+}
+.date-location {
+text-align: center;
+margin-top: 30px;
+margin-bottom: 20px;
+font-size: 11pt;
+font-style: italic;
+}
+@media print {
+body {
+margin: 0;
+padding: 15mm;
+font-size: 11pt;
+}
+.no-print {
+display: none !important;
+}
+.print-button {
+display: none !important;
+}
+.section {
+page-break-inside: avoid;
+}
+.signatures {
+page-break-inside: avoid;
+}
+.party {
+background-color: #ffffff;
+}
+.scope-item {
+background-color: #ffffff;
+border-left: 2px solid #000000;
+}
+}
+@page {
+margin: 2cm;
+size: A4;
+}
+</style>
+</head>
+<body>
+<button class="print-button no-print" onclick="window.print()">🖨️ Salvar como PDF</button>
+
+<div class="header">
+<h1>Contrato de Prestação de Serviços de Consultoria</h1>
+<div class="subtitle">Live Consultoria Empresarial</div>
+<div class="company-info">CNPJ: 32.193.303/0001-57</div>
+<div class="company-info">Endereço: Brasília - DF</div>
+</div>
+
+<div class="parties">
+<div class="party">
+<div class="party-title">Contratante</div>
+<div class="party-info"><strong>Razão Social:</strong> [NOME_EMPRESA]</div>
+<div class="party-info"><strong>CNPJ:</strong> [CNPJ_EMPRESA]</div>
+<div class="party-info"><strong>Endereço:</strong> [ENDERECO_EMPRESA]</div>
+<div class="party-info"><strong>Representante Legal:</strong> [NOME_REPRESENTANTE]</div>
+<div class="party-info"><strong>CPF:</strong> [CPF_REPRESENTANTE]</div>
+</div>
+
+<div class="party">
+<div class="party-title">Contratada</div>
+<div class="party-info"><strong>Razão Social:</strong> Live Consultoria Empresarial Ltda</div>
+<div class="party-info"><strong>CNPJ:</strong> 32.193.303/0001-57</div>
+<div class="party-info"><strong>Endereço:</strong> Brasília - DF</div>
+<div class="party-info"><strong>Representante Legal:</strong> Luiz Portal</div>
+<div class="party-info"><strong>Email:</strong> [EMAIL_CONSULTOR]</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">Cláusula Primeira - Do Objeto</div>
+<div class="clause">
+<div class="clause-content">
+A <span class="highlight">CONTRATADA</span> prestará à <span class="highlight">CONTRATANTE</span> serviços de consultoria empresarial, conforme especificações detalhadas abaixo:
+
+<div class="scope-list">
+<div class="scope-item">
+<div class="scope-item-title">Diagnóstico de Processos e Maturidade Sistêmica</div>
+<div>Mapeamento do fluxo atual de produção versus capacidade do ERP existente. Identificação de gargalos imediatos de comunicação entre vendas e chão de fábrica.</div>
+</div>
+<div class="scope-item">
+<div class="scope-item-title">Estruturação Financeira e Custos</div>
+<div>Análise do fluxo de caixa, gestão do endividamento das máquinas e reestruturação de precificação para alavancar a capacidade ociosa.</div>
+</div>
+<div class="scope-item">
+<div class="scope-item-title">Desenho de Processos e Pré-requisitos para Certificação</div>
+<div>Padronização das operações produtivas e criação de indicadores (KPIs) para preparar o terreno para a auditoria de certificação (Inmetro/ISO).</div>
+</div>
+<div class="scope-item">
+<div class="scope-item-title">Descentralização e Planejamento Sucessório</div>
+<div>Estruturação de um comitê de gestão, redefinição de papéis da diretoria e criação de uma máquina de vendas comercial menos dependente do fundador.</div>
+</div>
+</div>
+
+<p style="margin-top: 15px;">Os serviços serão executados seguindo as melhores práticas de consultoria empresarial, com foco na melhoria da eficiência operacional e crescimento sustentável do negócio.</p>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">Cláusula Segunda - Do Prazo</div>
+<div class="clause">
+<div class="clause-content">
+O presente contrato terá vigência de <span class="highlight">15 semanas</span>, iniciando-se em <span class="highlight">[DATA_INICIO]</span> e encerrando-se em <span class="highlight">[DATA_FIM]</span>, podendo ser prorrogado mediante acordo entre as partes, formalizado por meio de termo aditivo.
+
+<div class="subclauses">
+<div class="subclause"><strong>Parágrafo Único:</strong> Os prazos estabelecidos são estimativos e poderão ser ajustados conforme a complexidade dos trabalhos e disponibilidade da CONTRATANTE em fornecer as informações necessárias.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">Cláusula Terceira - Do Valor e Forma de Pagamento</div>
+<div class="clause">
+<div class="clause-content">
+O valor total dos serviços é de <span class="currency">R$ 39.000,00 (Trinta e nove mil reais)</span>, que será pago conforme cronograma abaixo:
+
+<div class="subclauses">
+<div class="subclause">• <strong>Forma de Pagamento:</strong> A combinar (sugestão: 30% na assinatura e saldo em parcelas mensais proporcionais ao prazo)</div>
+<div class="subclause">• <strong>Vencimento:</strong> Conforme datas acordadas entre as partes</div>
+<div class="subclause">• <strong>Multa por Atraso:</strong> 2% sobre o valor em atraso</div>
+<div class="subclause">• <strong>Juros de Mora:</strong> 1% ao mês sobre o valor em atraso</div>
+</div>
+
+<p style="margin-top: 15px;"><strong>Parágrafo Único:</strong> O pagamento deverá ser efetuado via transferência bancária ou PIX, mediante apresentação da respectiva nota fiscal de serviços.</p>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">Cláusula Quarta - Das Obrigações da Contratada</div>
+<div class="clause">
+<div class="clause-content">
+A <span class="highlight">CONTRATADA</span> obriga-se a:
+<div class="subclauses">
+<div class="subclause">a) Executar os serviços com qualidade técnica e profissional reconhecida no mercado;</div>
+<div class="subclause">b) Manter absoluto sigilo sobre todas as informações confidenciais da CONTRATANTE;</div>
+<div class="subclause">c) Entregar os produtos e serviços conforme cronograma estabelecido;</div>
+<div class="subclause">d) Prestar suporte técnico durante todo o período de implementação;</div>
+<div class="subclause">e) Fornecer relatórios de acompanhamento quando solicitado pela CONTRATANTE;</div>
+<div class="subclause">f) Disponibilizar consultores qualificados e experientes para execução dos trabalhos;</div>
+<div class="subclause">g) Comunicar imediatamente qualquer impedimento que possa afetar o cronograma dos trabalhos.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">Cláusula Quinta - Das Obrigações da Contratante</div>
+<div class="clause">
+<div class="clause-content">
+A <span class="highlight">CONTRATANTE</span> obriga-se a:
+<div class="subclauses">
+<div class="subclause">a) Efetuar os pagamentos nas datas acordadas, sob pena de incidência de multa e juros;</div>
+<div class="subclause">b) Fornecer todas as informações, documentos e dados necessários para execução dos serviços;</div>
+<div class="subclause">c) Disponibilizar acesso às dependências, sistemas e colaboradores quando necessário;</div>
+<div class="subclause">d) Designar um responsável interno para acompanhamento e aprovação dos trabalhos;</div>
+<div class="subclause">e) Colaborar ativamente na implementação das melhorias e recomendações propostas;</div>
+<div class="subclause">f) Comunicar tempestivamente qualquer alteração que possa impactar os trabalhos;</div>
+<div class="subclause">g) Manter a confidencialidade sobre metodologias e conhecimentos técnicos da CONTRATADA.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">Cláusula Sexta - Da Confidencialidade</div>
+<div class="clause">
+<div class="clause-content">
+As partes comprometem-se a manter absoluto sigilo sobre todas as informações confidenciais, técnicas, comerciais, financeiras e estratégicas trocadas durante a execução deste contrato, não podendo divulgá-las a terceiros sem autorização expressa e por escrito da parte detentora da informação.
+
+<div class="subclauses">
+<div class="subclause"><strong>§1º</strong> - O descumprimento desta cláusula implicará no pagamento de multa equivalente a 50% do valor total do contrato, sem prejuízo das demais sanções legais.</div>
+<div class="subclause"><strong>§2º</strong> - A obrigação de confidencialidade permanecerá válida mesmo após o término deste contrato, pelo prazo de 5 (cinco) anos.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">Cláusula Sétima - Da Propriedade Intelectual</div>
+<div class="clause">
+<div class="clause-content">
+Todos os materiais, metodologias, relatórios e documentos produzidos especificamente para a CONTRATANTE durante a execução deste contrato serão de propriedade da CONTRATANTE, ressalvados os conhecimentos técnicos e metodologias pré-existentes da CONTRATADA.
+
+<div class="subclauses">
+<div class="subclause"><strong>Parágrafo Único:</strong> A CONTRATADA poderá utilizar os conhecimentos adquiridos durante a prestação dos serviços para aprimoramento de suas metodologias, desde que não revele informações confidenciais da CONTRATANTE.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">Cláusula Oitava - Da Rescisão</div>
+<div class="clause">
+<div class="clause-content">
+Este contrato poderá ser rescindido nas seguintes hipóteses:
+
+<div class="subclauses">
+<div class="subclause"><strong>I - Por acordo mútuo:</strong> Mediante aviso prévio de 30 (trinta) dias, sem ônus para qualquer das partes;</div>
+<div class="subclause"><strong>II - Por inadimplemento:</strong> Em caso de descumprimento de qualquer cláusula contratual, após notificação e prazo de 15 (quinze) dias para regularização;</div>
+<div class="subclause"><strong>III - Por conveniência:</strong> Por qualquer das partes, mediante aviso prévio de 30 (trinta) dias e pagamento de multa equivalente a 20% do valor remanescente do contrato.</div>
+</div>
+<p style="margin-top: 15px;"><strong>Parágrafo Único:</strong> Em caso de rescisão, a CONTRATANTE deverá quitar todos os serviços já executados até a data da rescisão.</p>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">Cláusula Nona - Das Disposições Gerais</div>
+<div class="clause">
+<div class="clause-content">
+<div class="subclauses">
+<div class="subclause"><strong>I</strong> - Este contrato substitui todos os acordos anteriores entre as partes relativos ao objeto aqui tratado;</div>
+<div class="subclause"><strong>II</strong> - Qualquer alteração deste contrato deverá ser formalizada por meio de termo aditivo assinado por ambas as partes;</div>
+<div class="subclause"><strong>III</strong> - A tolerância de qualquer das partes quanto ao descumprimento de qualquer condição deste contrato não constituirá novação ou renúncia;</div>
+<div class="subclause"><strong>IV</strong> - Se qualquer disposição deste contrato for considerada inválida, as demais cláusulas permanecerão em pleno vigor.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">Cláusula Décima - Do Foro</div>
+<div class="clause">
+<div class="clause-content">
+Fica eleito o foro da comarca de <span class="highlight">Goiânia - GO</span> para dirimir quaisquer questões oriundas deste contrato, renunciando as partes a qualquer outro, por mais privilegiado que seja.
+</div>
+</div>
+</div>
+
+<div class="date-location">
+Goiânia, 24 de março de 2026
+</div>
+
+<div class="signatures">
+<div class="signature-block">
+<div class="signature-line">
+<strong>[NOME_REPRESENTANTE]</strong><br>
+Representante Legal<br>
+[NOME_EMPRESA]<br>
+CPF: [CPF_REPRESENTANTE]
+</div>
+</div>
+
+<div class="signature-block">
+<div class="signature-line">
+<strong>Luiz Portal</strong><br>
+Live Consultoria Empresarial<br>
+Consultor Responsável<br>
+Email: [EMAIL_CONSULTOR]
+</div>
+</div>
+</div>
+
+<div class="footer">
+<p>Este contrato foi elaborado em conformidade com o Código Civil Brasileiro e demais legislações aplicáveis.</p>
+<p>Para dúvidas ou esclarecimentos, entre em contato com a Live Consultoria Empresarial.</p>
+</div>
+
+<div class="developer-credit">
+Desenvolvido por Cléber Donato
+</div>
+
+<script>
+// Função para salvar como PDF
+function salvarPDF() {
+window.print();
+}
+// Adicionar evento de teclado para Ctrl+P
+document.addEventListener('keydown', function(e) {
+if (e.ctrlKey && e.key === 'p') {
+e.preventDefault();
+salvarPDF();
+}
+});
+</script>
+</body>
+</html>
