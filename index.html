@@ -3,64 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposta de Consultoria Estratégica - Live Consultoria</title>
+    <title>Proposta de Transformação e Escalabilidade - Live Consultoria</title>
     <!-- Fontes Live: Merriweather e Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --live-azul-petroleo: #06192a;
-            --live-verde-vibrante: #00e800;
-            --live-branco: #ffffff;
-            --live-cinza-claro: #f8f9fa;
-            --live-cinza-medio: #6c757d;
-            --live-azul-claro: #143555;
-            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 10px 15px -3px rgba(6, 25, 42, 0.1);
-            --shadow-lg: 0 20px 25px -5px rgba(6, 25, 42, 0.1);
+            /* Atmosfera (Backgrounds) */
+            --live-deep: #06192a;
+            
+            /* Superfícies (Refractive Glass) */
+            --live-glass: rgba(10, 36, 61, 0.70);
+            --live-glass-hover: rgba(15, 45, 75, 0.85);
+            --glass-blur: blur(16px) saturate(180%);
+
+            /* Luz & Ação */
+            --live-accent: #00e800;
+            --live-accent-dim: rgba(0, 232, 0, 0.15);
+            --kinetic-gradient: linear-gradient(90deg, #ffffff 0%, #cccccc 50%, #00e800 100%);
+            
+            /* Física de Animação (Micro-Springs) */
+            --spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --ease-fluid: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+            /* Bordas Inteligentes */
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-active: rgba(0, 232, 0, 0.4);
+            
+            --text-main: #e2e8f0;
         }
 
         body {
             font-family: 'Merriweather', serif;
-            background-color: var(--live-cinza-claro);
-            color: var(--live-azul-petroleo);
+            background-color: var(--live-deep);
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            color: var(--text-main);
             margin: 0;
             padding: 0;
             line-height: 1.8;
             -webkit-font-smoothing: antialiased;
+            position: relative;
+        }
+        
+        /* Luz Dinâmica / Aurora no Desktop */
+        @media (hover: hover) {
+            body::before {
+                content: '';
+                position: fixed;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle at 50% 50%, rgba(0, 232, 0, 0.05) 0%, transparent 40%);
+                pointer-events: none;
+                z-index: -1;
+                animation: slowMove 20s infinite alternate linear;
+            }
+        }
+        
+        @keyframes slowMove {
+            0% { transform: translate(10%, 10%); }
+            100% { transform: translate(-10%, -10%); }
         }
 
         h1, h2, h3, h4, h5, .font-poppins {
             font-family: 'Poppins', sans-serif;
-            color: var(--live-azul-petroleo);
+            color: #ffffff;
             margin-top: 0;
+        }
+
+        /* Títulos Cinéticos */
+        .kinetic-title {
+            background: var(--kinetic-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: kineticFlow 5s linear infinite;
+        }
+        
+        @keyframes kineticFlow {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
         }
 
         /* Hero Section */
         .hero {
-            background-color: var(--live-azul-petroleo);
-            background-image: radial-gradient(circle at right top, var(--live-azul-claro) 0%, transparent 50%);
-            padding: 80px 20px;
+            padding: 80px 20px 40px;
             text-align: center;
-            color: var(--live-branco);
             position: relative;
-            overflow: hidden;
-            border-bottom: 5px solid var(--live-verde-vibrante);
+            z-index: 10;
         }
 
         .hero img {
             max-width: 250px;
             margin-bottom: 30px;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+            filter: drop-shadow(0 4px 10px rgba(0,232,0,0.2));
         }
 
         .hero h1 {
-            color: var(--live-verde-vibrante);
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 10px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
             letter-spacing: -1px;
         }
         
@@ -70,93 +114,69 @@
             opacity: 0.9;
             max-width: 600px;
             margin: 0 auto;
-            color: var(--live-branco);
+            color: #ccc;
         }
 
         .container {
             max-width: 1100px;
-            margin: -40px auto 40px;
+            margin: 0 auto 40px;
             padding: 0 20px;
             position: relative;
             z-index: 10;
         }
 
+        /* Física Refractiva dos Cards (Halo Effect) */
         .card {
-            background: var(--live-branco);
-            border: none;
+            background: var(--live-glass);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-subtle);
             border-radius: 16px;
             padding: 40px 50px;
             margin-bottom: 40px;
-            box-shadow: var(--shadow-lg);
             position: relative;
             overflow: hidden;
+            transition: transform 0.4s var(--spring-bounce), background 0.3s var(--ease-fluid), border-color 0.3s ease;
         }
         
+        @media (hover: hover) {
+            .card:hover {
+                transform: translateY(-8px);
+                background: var(--live-glass-hover);
+                border-color: var(--border-active);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 232, 0, 0.1);
+            }
+        }
+
         .card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 6px;
+            width: 4px;
             height: 100%;
-            background-color: var(--live-verde-vibrante);
+            background-color: var(--live-accent);
         }
 
         .card-header {
             display: flex;
             align-items: center;
             margin-bottom: 30px;
-            border-bottom: 1px solid rgba(6, 25, 42, 0.1);
+            border-bottom: 1px solid var(--border-subtle);
             padding-bottom: 15px;
         }
         
         .card-header i {
             font-size: 2.2rem;
-            color: var(--live-verde-vibrante);
+            color: var(--live-accent);
             margin-right: 20px;
+            text-shadow: 0 0 10px rgba(0, 232, 0, 0.4);
         }
 
         .card-header h2 {
             margin: 0;
             font-size: 2.2rem;
             font-weight: 600;
-        }
-
-        /* Mapca Methodology Section */
-        .mapca-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .mapca-box {
-            background-color: var(--live-cinza-claro);
-            padding: 25px;
-            border-radius: 12px;
-            border-left: 4px solid var(--live-azul-petroleo);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .mapca-box:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .mapca-box h3 {
-            font-size: 1.4rem;
-            color: var(--live-azul-petroleo);
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-
-        .mapca-box h3 i {
-            color: var(--live-verde-vibrante);
-            margin-right: 12px;
-            font-size: 1.2rem;
         }
 
         /* Priorities / Matrix Grid */
@@ -168,21 +188,27 @@
         }
 
         .priority-item {
-            padding: 20px;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 12px;
             display: flex;
             flex-direction: column;
-            border: 1px solid rgba(0,0,0,0.05);
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--border-subtle);
+            transition: all 0.3s var(--ease-fluid);
+        }
+        
+        .priority-item:hover {
+            background: rgba(0,0,0,0.4);
+            border-color: rgba(255,255,255,0.2);
         }
 
         .priority-high {
-            background-color: rgba(0, 232, 0, 0.05);
-            border-left: 4px solid var(--live-verde-vibrante);
+            border-left: 4px solid var(--live-accent);
+            box-shadow: inset 2px 0 15px rgba(0, 232, 0, 0.05);
         }
 
         .priority-structural {
-            background-color: rgba(6, 25, 42, 0.03);
-            border-left: 4px solid var(--live-azul-petroleo);
+            border-left: 4px solid #fff;
         }
 
         /* Timeline / Action Plan */
@@ -198,37 +224,45 @@
             left: 14px;
             top: 0;
             height: 100%;
-            width: 3px;
-            background: linear-gradient(to bottom, var(--live-verde-vibrante), var(--live-azul-petroleo));
+            width: 2px;
+            background: linear-gradient(to bottom, var(--live-accent), rgba(255,255,255,0.1));
             border-radius: 3px;
         }
 
         .timeline-item {
             position: relative;
             margin-bottom: 40px;
-            background: var(--live-cinza-claro);
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--border-subtle);
             padding: 25px;
             border-radius: 12px;
-            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s var(--ease-fluid);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+            border-color: var(--border-active);
         }
 
         .timeline-item::after {
             content: '';
             position: absolute;
-            left: -33px;
+            left: -32px;
             top: 25px;
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
-            background-color: var(--live-branco);
-            border: 4px solid var(--live-verde-vibrante);
+            background-color: var(--live-deep);
+            border: 3px solid var(--live-accent);
             z-index: 2;
+            box-shadow: 0 0 10px rgba(0, 232, 0, 0.5);
         }
         
         .timeline-cap {
             display: inline-block;
-            background-color: var(--live-azul-petroleo);
-            color: var(--live-branco);
+            background-color: var(--live-accent-dim);
+            color: var(--live-accent);
+            border: 1px solid rgba(0,232,0,0.3);
             padding: 5px 12px;
             border-radius: 6px;
             font-family: 'Poppins', sans-serif;
@@ -240,16 +274,17 @@
         }
 
         .highlight {
-            background-color: rgba(0, 232, 0, 0.15);
-            color: var(--live-azul-petroleo);
+            background-color: var(--live-accent-dim);
+            color: #fff;
             padding: 4px 10px;
             border-radius: 4px;
             font-weight: 700;
             font-family: 'Poppins', sans-serif;
+            border: 1px solid rgba(0,232,0,0.2);
         }
 
-        strong.dark {
-            color: var(--live-azul-petroleo);
+        strong {
+            color: #ffffff;
             font-weight: 700;
         }
 
@@ -257,56 +292,67 @@
         .cta-section {
             text-align: center;
             padding: 50px;
-            background: linear-gradient(135deg, var(--live-azul-petroleo) 0%, var(--live-azul-claro) 100%);
+            background: var(--live-glass);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-active);
             border-radius: 16px;
-            color: var(--live-branco);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             margin-bottom: 40px;
             position: relative;
             overflow: hidden;
         }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, rgba(0,232,0,0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
 
         .cta-section h2 {
-            color: var(--live-verde-vibrante);
             font-size: 2.8rem;
             margin-bottom: 15px;
         }
 
         .price-box {
             display: inline-block;
-            background: rgba(255,255,255,0.05);
+            background: rgba(0,0,0,0.3);
             padding: 20px 40px;
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid var(--border-subtle);
             margin: 20px 0 40px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
         }
         
         .price-box h1 {
-            color: var(--live-verde-vibrante);
+            color: var(--live-accent);
             font-size: 3.5rem;
             margin: 0;
             line-height: 1;
+            text-shadow: 0 0 20px rgba(0, 232, 0, 0.4);
         }
         
-        /* Buttons */
+        /* Botões "Ghost Neon" com Inércia */
         .btn-primary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--live-verde-vibrante);
-            color: var(--live-azul-petroleo);
+            background-color: transparent;
+            color: var(--live-accent);
             text-decoration: none;
             padding: 16px 36px;
             border-radius: 8px;
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
             font-size: 1.2rem;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border: none;
+            border: 2px solid var(--live-accent);
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(0, 232, 0, 0.3);
+            box-shadow: 0 0 15px rgba(0, 232, 0, 0.2), inset 0 0 10px rgba(0, 232, 0, 0.1);
+            transition: transform 0.4s var(--spring-bounce), background-color 0.2s, box-shadow 0.2s, color 0.2s;
         }
 
         .btn-primary i {
@@ -315,9 +361,13 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 232, 0, 0.4);
-            background-color: #00ff00;
+            background-color: var(--live-accent);
+            color: var(--live-deep);
+            box-shadow: 0 0 25px rgba(0, 232, 0, 0.4);
+        }
+        
+        .btn-primary:active {
+            transform: scale(0.95);
         }
 
         .footer-cred {
@@ -327,6 +377,19 @@
             font-style: italic;
             padding: 20px;
             font-family: 'Poppins', sans-serif;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 40px;
+        }
+        
+        .footer-cred a {
+            color: var(--live-accent);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-cred a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
         }
 
         /* Responsive Improvements */
@@ -342,8 +405,8 @@
 <body>
 
     <div class="hero">
-        <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" alt="Live Consultoria">
-        <h1>Proposta de Transformação e Escalabilidade</h1>
+        <img src="https://raw.githubusercontent.com/Clebito2/ConsultoriaLive/main/Logo%20live%20oficial-21.png" alt="Live Consultoria">
+        <h1 class="kinetic-title">Proposta de Transformação e Escalabilidade</h1>
         <p class="subtitle">Desenhada exclusivamente para <strong>Indústria Textil</strong> por <strong>Luiz Portal</strong></p>
     </div>
 
@@ -352,28 +415,28 @@
         <div class="card">
             <div class="card-header">
                 <i class="fa-solid fa-magnifying-glass-chart"></i>
-                <h2>O Diagnóstico Estratégico</h2>
+                <h2 class="kinetic-title">O Diagnóstico Estratégico</h2>
             </div>
-            <p>Com base em nossa análise profunda do cenário atual da <strong class="dark">Indústria Textil</strong>, identificamos uma organização com um equipamento de ponta, <strong>capacidade produtiva ociosa</strong> e enorme potencial de mercado.</p>
+            <p>Com base em nossa análise profunda do cenário atual da <strong>Indústria Textil</strong>, identificamos uma organização com um equipamento de ponta, <strong>capacidade produtiva ociosa</strong> e enorme potencial de mercado.</p>
             <p>Porém, a <strong>alta centralização da gestão na figura do fundador</strong> (60 anos), aliada a <strong>processos desestruturados</strong> e um <strong>ERP subutilizado/obsoleto</strong> criaram gargalos que impedem a escala sistêmica. O alto endividamento devido ao financiamento do maquinário (FCO/BNDES) pressiona as margens financeiras no curto prazo. Este é o <strong>típico gargalo de crescimento</strong> onde a gestão não acompanhou a rápida expansão estrutural da fábrica.</p>
         </div>
 
         <div class="card">
             <div class="card-header">
                 <i class="fa-solid fa-layer-group"></i>
-                <h2>Metodologia M.A.P.C.A</h2>
+                <h2 class="kinetic-title">Metodologia M.A.P.C.A</h2>
             </div>
             <p>Para extrair a empresa do sufoco financeiro e colocá-la na rota de certificações e sucessão profissional, desenhamos uma abordagem técnica baseada no framework rigoroso <strong>M.A.P.C.A</strong> de transformação organizacional.</p>
             
             <div class="priority-grid">
                 <div class="priority-item priority-high">
-                    <h3 class="font-poppins"><i class="fa-solid fa-bolt" style="color:var(--live-verde-vibrante); margin-right:8px;"></i> Quick Wins (Ganhos Rápidos)</h3>
-                    <p><strong>Impacto: Alto | Esforço: Baixo</strong></p>
+                    <h3 class="font-poppins"><i class="fa-solid fa-bolt" style="color:var(--live-accent); margin-right:8px; text-shadow:0 0 5px rgba(0,232,0,0.5);"></i> Quick Wins (Ganhos Rápidos)</h3>
+                    <p style="color:#aaa; font-size:0.9rem;"><strong>Impacto: Alto | Esforço: Baixo</strong></p>
                     <p>Ações de ataque imediato para gerar caixa e aliviar o fluxo. Diagnóstico de viabilidade do ERP atual versus capacidades do chão de fábrica; mapeamento imediato de responsabilidades fundamentais para tirar o peso tático das costas do fundador.</p>
                 </div>
                 <div class="priority-item priority-structural">
-                    <h3 class="font-poppins"><i class="fa-solid fa-building" style="color:var(--live-azul-petroleo); margin-right:8px;"></i> Projetos Estruturais</h3>
-                    <p><strong>Impacto: Alto | Esforço: Alto</strong></p>
+                    <h3 class="font-poppins"><i class="fa-solid fa-building" style="color:#fff; margin-right:8px;"></i> Projetos Estruturais</h3>
+                    <p style="color:#aaa; font-size:0.9rem;"><strong>Impacto: Alto | Esforço: Alto</strong></p>
                     <p>Readequação total do chão de fábrica, preparação técnica para a certificação (Inmetro/ISO) e reestruturação da dívida das máquinas, tornando a operação perene, segura e autônoma.</p>
                 </div>
             </div>
@@ -382,9 +445,9 @@
         <div class="card">
             <div class="card-header">
                 <i class="fa-solid fa-route"></i>
-                <h2>O Plano de Ação Estruturado</h2>
+                <h2 class="kinetic-title">O Plano de Ação Estruturado</h2>
             </div>
-            <p>Nosso roteiro de execução para a <strong class="dark">Indústria Textil</strong> será faseado para garantir absorção de cultura e resultado no caixa ao longo do processo.</p>
+            <p>Nosso roteiro de execução para a <strong>Indústria Textil</strong> será faseado para garantir absorção de cultura e resultado no caixa ao longo do processo.</p>
             
             <div class="timeline">
                 <div class="timeline-item">
@@ -418,24 +481,24 @@
         </div>
 
         <div class="cta-section">
-            <h2>Prontos para profissionalizar o futuro?</h2>
-            <p class="subtitle">O investimento correspondente a 15 semanas da Consultoria Live para Mapeamento Estratégico, Execução da Reestruturação e Desenho de Certificações é de:</p>
+            <h2 class="kinetic-title">Prontos para profissionalizar o futuro?</h2>
+            <p class="subtitle" style="color:#e2e8f0;">O investimento correspondente a 15 semanas da Consultoria Live para Mapeamento Estratégico, Execução da Reestruturação e Desenho de Certificações é de:</p>
             
             <div class="price-box">
                 <h1>R$ 39.000,00</h1>
             </div>
             
-            <p style="margin-bottom: 35px; opacity: 0.8;"><em>* Condições de faturamento e parcelamentos disponíveis no corpo do contrato formal.</em></p>
+            <p style="margin-bottom: 35px; opacity: 0.6; font-size:0.9rem;"><em>* Condições de faturamento e parcelamentos disponíveis no corpo do contrato formal.</em></p>
             
             <a href="contrato_Industria_Textil.html" target="_blank" class="btn-primary">
                 <i class="fa-solid fa-file-signature"></i> 
-                Abrir Contrato para PDF & Assinatura
+                Abrir Contrato para Assinatura
             </a>
         </div>
     </div>
 
     <div class="footer-cred">
-        Desenvolvido com o rigor da Live Consultoria por Cléber Donato
+        &#8353; Powered by <a href="mailto:cleberdonato@ecossistemalive.com.br">Cléber Donato</a>.
     </div>
 
 </body>
