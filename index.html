@@ -3,190 +3,298 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proposta de Consultoria - Live Consultoria</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+<title>Proposta Executiva - Live Consultoria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --live-azul-petroleo: #06192a;
-    --live-verde-vibrante: #00e800;
-    --live-branco: #ffffff;
-    --live-cinza-claro: #f8f9fa;
-    --live-cinza-medio: #6c757d;
-  }
-  body, html {
-    margin: 0; padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--live-azul-petroleo);
-    color: var(--live-branco);
-  }
-  p, li { font-family: 'Merriweather', serif; line-height: 1.6; }
-  .container { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
-  .logo { max-width: 150px; margin-bottom: 20px; display: block; }
-  
-  /* Cards UI Glassmorphism Live V6 */
-  .card {
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 35px 30px;
-    margin-bottom: 30px;
+    --live-bg: #03080e;
+    --live-surface: rgba(10, 20, 35, 0.6);
+    --live-surface-hover: rgba(15, 30, 50, 0.8);
+    --live-border: rgba(255, 255, 255, 0.06);
+    --live-neon: #00e800;
+    --live-neon-dim: rgba(0, 232, 0, 0.15);
+    --live-text: #f1f5f9;
+    --live-muted: #94a3b8;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Outfit', sans-serif;
   }
   
-  h1, h2, h3 { color: var(--live-branco); font-family: 'Poppins', sans-serif; }
-  h1 { font-size: 2.2rem; margin-bottom: 10px; font-weight: 700; line-height: 1.2; }
-  h2 { font-size: 1.8rem; margin-bottom: 20px; border-bottom: 2px solid var(--live-verde-vibrante); display: inline-block; padding-bottom: 5px; }
-  h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--live-verde-vibrante); }
+  /* Reset & Base */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-body);
+    background-color: var(--live-bg);
+    color: var(--live-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+  }
   
-  .highlight { color: var(--live-verde-vibrante); font-weight: bold; }
+  /* Noise Texture Overlay */
+  body::before {
+    content: ""; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 9999;
+  }
   
-  /* Botões Neon Ghost */
-  .btn-primary {
-    background-color: transparent;
-    color: var(--live-verde-vibrante);
-    border: 2px solid var(--live-verde-vibrante);
-    border-radius: 8px;
-    padding: 15px 35px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    cursor: pointer;
+  /* Typography */
+  h1, h2, h3 { font-family: var(--font-display); color: #ffffff; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.1; margin-bottom: 24px; }
+  h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 32px; font-weight: 500; }
+  h3 { font-size: 1.4rem; color: var(--live-text); font-weight: 500; margin-bottom: 16px; }
+  p { font-size: 1.125rem; color: var(--live-muted); margin-bottom: 20px; font-weight: 300; }
+  strong { color: var(--live-text); font-weight: 500; }
+  
+  /* Layout */
+  .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+  section { margin-bottom: 120px; position: relative; }
+  
+  /* Components */
+  .logo { width: 140px; margin-bottom: 60px; }
+  
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--live-neon-dim); color: var(--live-neon);
+    padding: 6px 14px; border-radius: 100px;
+    font-size: 0.85rem; font-weight: 700; font-family: var(--font-display);
+    text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px;
+    border: 1px solid rgba(0, 232, 0, 0.3);
+  }
+  
+  .glass-panel {
+    background: var(--live-surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--live-border);
+    border-radius: 24px;
+    padding: 48px;
     transition: all 0.3s ease;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-block;
-    box-shadow: 0 0 5px rgba(0, 232, 0, 0.1);
+  }
+  
+  /* Grid & Asymmetry */
+  .grid-2 { display: grid; grid-template-columns: 1fr; gap: 32px; }
+  @media(min-width: 900px) {
+    .grid-2 { grid-template-columns: 1.2fr 0.8fr; align-items: center; }
+    .grid-2.reverse { grid-template-columns: 0.8fr 1.2fr; }
+    .hero-content { padding-right: 40px; }
+  }
+  
+  /* Animated Data Box (Floating Element) */
+  .floating-card {
+    background: linear-gradient(145deg, rgba(10,20,35,0.8), rgba(5,10,18,0.9));
+    border: 1px solid rgba(0, 232, 0, 0.2);
+    border-left: 4px solid var(--live-neon);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    position: relative;
+    transform: translateY(0);
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+  }
+  .stat-value { font-family: var(--font-display); font-size: 3rem; color: var(--live-neon); font-weight: 700; line-height: 1; margin-bottom: 8px; }
+  .stat-label { color: var(--live-muted); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; margin: 0; }
+  
+  /* Lists & Icons */
+  .custom-list { list-style: none; }
+  .custom-list li {
+    position: relative; padding-left: 40px; margin-bottom: 24px;
+    color: var(--live-muted); font-size: 1.1rem;
+  }
+  .custom-list li svg {
+    position: absolute; left: 0; top: 4px; width: 24px; height: 24px;
+    color: var(--live-neon);
+  }
+  
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+    background: transparent; color: var(--live-text);
+    font-family: var(--font-display); font-weight: 700; font-size: 1.1rem;
+    padding: 16px 36px; border-radius: 12px;
+    text-decoration: none; cursor: pointer;
+    border: 1px solid var(--live-border);
+    transition: all 0.25s ease;
+    overflow: hidden; position: relative;
+  }
+  .btn-primary {
+    background: var(--live-neon);
+    color: #000;
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 232, 0, 0.2);
   }
   .btn-primary:hover {
-    background-color: var(--live-verde-vibrante);
-    color: var(--live-azul-petroleo);
-    transform: scale(1.03);
-    box-shadow: 0 4px 20px rgba(0, 232, 0, 0.3);
+    background: #00ff00;
+    box-shadow: 0 0 30px rgba(0, 232, 0, 0.4);
+    transform: translateY(-2px);
+  }
+  .btn-secondary:hover {
+    border-color: var(--live-neon);
+    color: var(--live-neon);
+    background: rgba(0, 232, 0, 0.05);
   }
   
-  /* Grid System */
-  .grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
-  @media(min-width: 768px) {
-    .grid { grid-template-columns: 1fr 1fr; }
+  /* Timeline MAPCA */
+  .timeline { position: relative; padding-left: 32px; border-left: 1px dashed var(--live-border); }
+  .timeline-item { position: relative; margin-bottom: 40px; }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -38px; top: 0;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--live-bg); border: 2px solid var(--live-neon);
+    box-shadow: 0 0 10px var(--live-neon);
   }
+  .timeline-title { font-size: 1.25rem; color: #fff; margin-bottom: 8px; }
   
-  /* FAQ Acordeão */
-  details { margin-bottom: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 15px; }
-  summary { font-family: 'Poppins', sans-serif; font-weight: bold; cursor: pointer; color: var(--live-verde-vibrante); font-size: 1.1rem; outline: none; }
-  summary::-webkit-details-marker { color: var(--live-verde-vibrante); }
-  details p { margin-top: 10px; margin-bottom: 0; }
+  /* Pricing Box */
+  .pricing-box {
+    text-align: center; padding: 60px 40px;
+    background: radial-gradient(circle at top, rgba(0, 232, 0, 0.08) 0%, transparent 70%), var(--live-surface);
+    border: 1px solid var(--live-border); border-top: 1px solid rgba(0, 232, 0, 0.3);
+    border-radius: 32px;
+  }
+  .price { font-family: var(--font-display); font-size: 4rem; color: #fff; font-weight: 700; margin: 24px 0 8px; line-height: 1; }
+  .price span { font-size: 1.5rem; color: var(--live-neon); position: relative; top: -1.5rem; }
   
-  /* Rodapé */
+  /* Footer */
   footer {
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 30px 20px;
-    margin-top: 50px;
-    color: #999;
-    font-size: 0.9rem;
+    text-align: center; padding: 60px 24px; border-top: 1px solid var(--live-border);
+    margin-top: 80px;
   }
-  .credit {
-    font-size: 0.8rem;
-    opacity: 0.5;
-    margin-top: 20px;
-  }
-  .credit a { color: var(--live-verde-vibrante); text-decoration: none; }
+  
+  /* Animations */
+  .fade-up { opacity: 0; transform: translateY(30px); animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .delay-1 { animation-delay: 0.2s; }
+  .delay-2 { animation-delay: 0.4s; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
 <body>
 
 <div class="container">
   
-  <!-- 1. HERO -->
-  <header class="card" style="text-align: center; border-color: rgba(0, 232, 0, 0.3);">
-    <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" class="logo" style="margin: 0 auto 20px auto;">
-    <h1>De Centralização a Processos Maduros e Produtividade</h1>
-    <p style="font-size: 1.2rem; margin-bottom: 30px; font-family: 'Poppins', sans-serif; opacity: 0.9;">
-      Libere o gestor da operação manual, integre seu ERP à fábrica e crie uma máquina comercial robusta com a Live.
-    </p>
-    <a href="#investimento" class="btn-primary">Avançar para Proposta</a>
-  </header>
-
-  <!-- 2. PROBLEMA E CONTEXTO -->
-  <section class="card">
-    <h2>Entendendo o Cenário Atual</h2>
-    <p>O briefing revelou aspectos incríveis de sua indústria têxtil, como maquinário moderno e de altíssimo investimento (BNDES/FCO), atestando a qualidade do parque tecnológico. Porém, identificamos <strong>dores contundentes</strong> que vêm sugando a saúde financeira e pessoal do negócio:</p>
-    <ul>
-      <li><span class="highlight">O "Herói Centralizador":</span> Toda a venda, finanças e controle de PCP dependem diretamente e estritamente de apenas um gestor (Pai), gerando sérios riscos biológicos, exaustão e travando o crescimento.</li>
-      <li><span class="highlight">ERP Isolado e Falha de Processos:</span> Os processos de chão de fábrica são arcaicos (não emitem código de barra) enquanto o ERP existente (ou a falta da cultura de uso) não atende as reais demandas.</li>
-      <li><span class="highlight">Pressão Financeira:</span> Investimento pesado em FCO com certa ociosidade de balcão de vendas; necessita repaginar a equipe de vendas de forma urgente.</li>
-    </ul>
-  </section>
-
-  <!-- 3. TRANSFORMAÇÃO ESPERADA -->
-  <section class="card">
-    <h2>A Transformação (Antes x Depois)</h2>
-    <div class="grid">
-      <div style="background: rgba(255,0,0,0.05); padding: 20px; border-radius: 8px;">
-        <h3 style="color: #ff4d4d;">Situação Atual</h3>
-        <p>• Gastos excessivos de energia do fundador<br>• Gestão estressada, baseada em "grito" ou instinto<br>• Sistemas subutilizados, processos em Excel/Papel<br>• Dificuldade e medo excessivo para tirar Certificação Inmetro</p>
+  <!-- HERO -->
+  <section class="fade-up">
+    <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" class="logo" alt="Live Consultoria">
+    <div class="grid-2">
+      <div class="hero-content">
+        <div class="badge">PROPOSTA EXECUTIVA B2B</div>
+        <h1>De Operação Centralizada a Produtividade Extrema</h1>
+        <p>Desenvolvemos uma arquitetura gerencial sob medida para libertar o fundador da operação manual e plugar agilidade de software direto no chão de fábrica.</p>
+        <div style="margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="#investimento" class="btn btn-primary">Analisar Plano de Ação <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
+        </div>
       </div>
-      <div style="background: rgba(0,232,0,0.05); padding: 20px; border-radius: 8px;">
-        <h3>A Nova Indústria</h3>
-        <p>• Gestor focando apenas no direcionamento estratégico<br>• Cultura de gestão com indicadores financeiros mensais<br>• Software alinhado à produção, agilizando faturamento<br>• Compliance nativo, certificação como mera consequência dos processos organizados</p>
+      
+      <div class="floating-card delay-1 fade-up">
+        <div class="stat-value">Zero</div>
+        <p class="stat-label" style="color: #fff;">Dependência do dono no faturamento comercial</p>
+        <hr style="border-color: var(--live-border); margin: 24px 0;">
+        <div class="stat-value" style="font-size: 2rem;">100%</div>
+        <p class="stat-label">Integração do chão de fábrica com o ERP em 3 meses</p>
       </div>
     </div>
   </section>
 
-  <!-- 4. ABORDAGEM E PLANO -->
-  <section class="card">
-    <h2>O Plano de Ação M.A.P.C.A</h2>
-    <p>Mapeamento e arquitetura da evolução técnica e gerencial, feita mês a mês:</p>
-    <ul>
-      <li><strong>Mês 1 | Visão Ampliada Financeira e Organizacional:</strong> Identificação real do impacto das parcelas dos maquinários na margem e alívio das primeiras tarefas da liderança técnica.</li>
-      <li><strong>Meses 2 a 3 | Integração de Sistemas e Padronização:</strong> Modelagem de como um pedido comercial caminha perfeitamente pelo ERP e termina entregue (plano de corte e despacho embalado automatizados).</li>
-      <li><strong>Mês 4 | Motor Comercial Autossustentável:</strong> Como o consultor identificou a brecha comercial, formaremos modelo de vendas B2B independente.</li>
-    </ul>
-    <p><em>*A preparação cultural para certificações (Inmetro, etc.) transcorrerá durante toda a esteira do projeto.</em></p>
-  </section>
-
-  <!-- 5. PROVA DE RESULTADOS -->
-  <section class="card">
-    <h2>Credibilidade Live</h2>
-    <p>Temos sucesso documentado com diversas indústrias da Região Centro-Oeste (como em indústrias de móveis de grande escala em Senador Canedo e estruturas equivalentes), criando esteiras sistêmicas limpas e organizadas. Nós conhecemos a linguagem do chão de fábrica e a dor do dono de indústria pesada.</p>
-  </section>
-
-  <!-- 6. INVESTIMENTO -->
-  <section id="investimento" class="card" style="text-align: center; position: relative; overflow: hidden;">
-    <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--live-verde-vibrante);"></div>
-    <h2>Proposta Recomendada (Pacote Único)</h2>
-    <p>Estruturação Completa: Processos, Software (Evolução de ERP), Máquina Rápida Comercial e Diagnóstico Financeiro Têxtil.</p>
-    <div style="background: rgba(0,232,0,0.05); padding: 20px; border-radius: 12px; margin: 20px 0;">
-      <h3 style="font-size: 2.5rem; margin: 0;">R$ 54.000</h3>
-      <p style="margin: 10px 0 0 0; color: #aaa;">Duração Aproximada: 5 a 6 Meses <br>(Condições: Entrada de 20%, saldo parcelado)</p>
+  <!-- DIAGNÓSTICO -->
+  <section class="glass-panel fade-up delay-2">
+    <div class="badge" style="background: rgba(255,255,255,0.05); color: #fff; border-color: rgba(255,255,255,0.1);">O Diagnóstico</div>
+    <h2>O gargalo é o próprio motor financeiro</h2>
+    <div class="grid-2 reverse" style="gap: 60px;">
+      <div>
+        <h3 style="color: #ff4d4d;">Cenário de Risco</h3>
+        <p>Identificamos um parque tecnológico robusto (BNDES/FCO), mas refém de <strong>processos arcaicos e controle analógico</strong>.</p>
+        <ul class="custom-list" style="margin-top: 32px;">
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <strong>"Herói Centralizador":</strong> O gestor absorve comercial, finanças e PCP, travando a curva de escala.
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+            <strong>Erosão de Software:</strong> ERP existe, mas o chão de fábrica não o alimenta. Sem código de barras corporativo.
+          </li>
+        </ul>
+      </div>
+      <div style="background: #050d18; padding: 32px; border-radius: 16px; border: 1px solid var(--live-border);">
+        <h3 style="color: var(--live-neon);">Nossa Solução Arquitetural</h3>
+        <p>Construir a <strong>Governança de Base</strong>. Uma esteira sistêmica que torna a gestão previsível, rastreável e auditável, pavimentando 90% do caminho burocrático para uma futura Certificação do Inmetro.</p>
+      </div>
     </div>
-    <a href="contrato_textil.html" target="_blank" class="btn-primary" style="margin-top: 20px; padding: 20px 40px; font-size: 1.2rem;">Ler & Gerar PDF do Contrato</a>
   </section>
 
-  <!-- 7. FAQ -->
-  <section class="card">
-    <h2>Dúvidas Frequentes</h2>
-    <details>
-      <summary>O tempo do proprietário atual é curto para novos projetos. Isso é viável?</summary>
-      <p>Totalmente. O nosso compromisso inicial (Quick Win) visa exatamente <strong>ganhar tempo</strong> para o fundador, assumindo mapeamentos in-loco pela nossa equipe. Nós desatamos o nó do dia a dia ao lado dele na fábrica.</p>
-    </details>
-    <details>
-      <summary>Vocês garantem a certificação Inmetro após isso?</summary>
-      <p>Nosso projeto constrói a organização básica (Processos Documentados e Governança), que hoje impedem a indústria de avançar na certificação sem dor. Estarão com 90% do caminho burocrático de gestão já pavimentado.</p>
-    </details>
-    <details>
-      <summary>E se precisarmos mudar o ERP no meio do processo?</summary>
-      <p>Lideramos escrutínios rígidos de software. A transição tecnológica faz parte se provarmos a estagnação do modelo atual para a indústria.</p>
-    </details>
+  <!-- M.A.P.C.A -->
+  <section class="fade-up">
+    <div class="badge">Framework Exclusivo</div>
+    <h2>Plano de Ação: O Ciclo de 5 Meses</h2>
+    <div class="grid-2" style="align-items: start;">
+      <div>
+        <p style="font-size: 1.25rem;">Nossa matriz M.A.P.C.A garante implementação rápida, com os primeiros "Quick Wins" liberando banda cognitiva do gestor já no primeiro mês.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-title">Mês 1 / Visão Ampliada</div>
+          <p>Organização do fluxo de caixa e realocação das primeiras responsabilidades operacionais da liderança.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">Mês 2 e 3 / Integração Operacional</div>
+          <p>Modelagem do <strong>Order-To-Fulfillment</strong>: do pedido à entrega usando o ERP plenamente, com uso de leitor de barras.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">Mês 4 e 5 / Motor Comercial</div>
+          <p>Estruturação de máquina de vendas B2B independente. O dono passa a ser Diretor Executivo, não mais vendedor de balcão.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- RODAPÉ -->
+  <!-- INVESTMENT -->
+  <section id="investimento" class="fade-up">
+    <div class="pricing-box">
+      <div class="badge" style="margin-bottom: 0;">ESCOPO UNIFICADO</div>
+      <div class="price"><span>R$</span>54.000</div>
+      <p style="font-size: 1.2rem; color: #fff; max-width: 600px; margin: 0 auto 32px;">Projeto de reestruturação de processos, software e modelagem comercial B2B.</p>
+      
+      <div style="display: flex; gap: 24px; justify-content: center; margin-bottom: 40px; color: var(--live-muted);">
+        <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" style="display:inline; vertical-align: text-bottom; color: var(--live-neon)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 5-6 Meses</span>
+        <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" style="display:inline; vertical-align: text-bottom; color: var(--live-neon)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 20% Entrada, saldo flexível</span>
+      </div>
+
+      <a href="contrato_textil.html" target="_blank" class="btn btn-primary" style="font-size: 1.25rem;">
+        Revisar & Assinar Contrato (PDF)
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" class="logo" style="margin: 0 auto; width: 100px;">
-    <strong>Live Consultoria Empresarial</strong><br>
-    CNPJ Consultoria Live - Negócios de Alta Performance<br>
-    <div class="credit">Powered by <a href="mailto:cleberdonato@gmail.com">Cléber Donato</a></div>
+    <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" class="logo" style="width: 100px; margin-bottom: 24px; opacity: 0.5;">
+    <p style="font-size: 0.9rem; margin-bottom: 8px;"><strong>Live Consultoria Empresarial</strong></p>
+    <p style="font-size: 0.85rem; color: var(--live-muted);">CNPJ: Consultoria Live - Negócios de Alta Performance</p>
   </footer>
 
 </div>
+
+<script>
+  // Simple intersection observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => {
+    el.style.animationPlayState = 'paused';
+    observer.observe(el);
+  });
+</script>
+
 </body>
 </html>
